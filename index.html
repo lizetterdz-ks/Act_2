@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Activity 2</title>
+    <link href="styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <label for="name">N1</label>
+    <input type="number" id="InputText1">
+    <label for="name">N2</label>
+    <input type="number" id="InputText2">
+    <div>
+      <button id="ActionButton1">SUM</button>
+    <button id="ActionButton2">SUBTRACT</button>
+    <button id="ActionButton3">MULTIPLY</button>
+    <button id="ActionButton4">DIVIDE</button>
+    <button id="ActionButton5">FACTORIAL OF N1</button>
+    </div>
+    <script>
+        document.getElementById('ActionButton1').addEventListener('click', sum);
+        document.getElementById('ActionButton2').addEventListener('click', sub);
+        document.getElementById('ActionButton3').addEventListener('click', mul);
+        document.getElementById('ActionButton4').addEventListener('click', div);
+        document.getElementById('ActionButton5').addEventListener('click', fac);
+
+        function sum(){
+          let n1=Number(document.getElementById('InputText1').value);
+          let n2=Number(document.getElementById('InputText2').value);
+          let r=n1+n2;
+          if (Number.isInteger(r)==false){
+            r=r.toFixed(5);
+          }
+          console.log(n1+' + '+n2+' = '+r);
+        }
+        function sub(){
+          let n1=Number(document.getElementById('InputText1').value);
+          let n2=Number(document.getElementById('InputText2').value);
+          let r=n1-n2;
+          if (Number.isInteger(r)==false){
+            r=r.toFixed(5);
+          }
+          console.log(n1+' - '+n2+' = '+r);
+        }
+        function mul(){
+          let n1=Number(document.getElementById('InputText1').value);
+          let n2=Number(document.getElementById('InputText2').value);
+          let r=n1*n2;
+          if (Number.isInteger(r)==false){
+            r=r.toFixed(5);
+          }
+          console.log(n1+' * '+n2+' = '+r);
+        }   
+        function div(){
+          let n1=Number(document.getElementById('InputText1').value);
+          let n2=Number(document.getElementById('InputText2').value);
+          if (n1 == 0 || n2 == 0){
+            console.log('Result is infinite, try a different number')
+          }
+          else{
+            let r=(n1/n2)
+            if (Number.isInteger(r)==false){
+              r=r.toFixed(5);
+            }
+            console.log(n1+' ÷ '+n2+' = '+r);
+          }
+        }
+        function fac(){
+          let n1=Number(document.getElementById('InputText1').value);
+          if (n1<0){
+            console.log('Result is unattainable!');
+          }
+          else if (n1>100 || Number.isInteger(n1)==false){
+            console.log('Too much recursion! >.<')
+          }
+          else {
+            console.log(n1+'!'+'='+facti(n1));
+          }
+        }
+        function facti(n) {
+              if (n==0 || n==1){
+                return 1;
+              }
+              else {
+                return n*facti(n-1);
+              }
+        }
+    </script>
+  </body>
+</html>

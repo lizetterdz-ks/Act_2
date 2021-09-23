@@ -13,11 +13,12 @@
     <input type="number" id="InputText2">
     <div>
       <button id="ActionButton1">SUM</button>
-    <button id="ActionButton2">SUBTRACT</button>
-    <button id="ActionButton3">MULTIPLY</button>
-    <button id="ActionButton4">DIVIDE</button>
-    <button id="ActionButton5">FACTORIAL OF N1</button>
+      <button id="ActionButton2">SUBTRACT</button>
+      <button id="ActionButton3">MULTIPLY</button>
+      <button id="ActionButton4">DIVIDE</button>
+      <button id="ActionButton5">FACTORIAL OF N1</button>
     </div>
+    <textarea id="result" cols="22" readonly="true"></textarea>
     <script>
         document.getElementById('ActionButton1').addEventListener('click', sum);
         document.getElementById('ActionButton2').addEventListener('click', sub);
@@ -33,6 +34,7 @@
             r=r.toFixed(5);
           }
           console.log(n1+' + '+n2+' = '+r);
+          document.getElementById('result').textContent=('Result = '+r);
         }
         function sub(){
           let n1=Number(document.getElementById('InputText1').value);
@@ -42,6 +44,7 @@
             r=r.toFixed(5);
           }
           console.log(n1+' - '+n2+' = '+r);
+          document.getElementById('result').textContent=('Result = '+r);
         }
         function mul(){
           let n1=Number(document.getElementById('InputText1').value);
@@ -51,12 +54,14 @@
             r=r.toFixed(5);
           }
           console.log(n1+' * '+n2+' = '+r);
+          document.getElementById('result').textContent=('Result = '+r);
         }   
         function div(){
           let n1=Number(document.getElementById('InputText1').value);
           let n2=Number(document.getElementById('InputText2').value);
           if (n1 == 0 || n2 == 0){
             console.log('Result is infinite, try a different number')
+            document.getElementById('result').textContent=('Result is infinite, try a different number');
           }
           else{
             let r=(n1/n2)
@@ -64,18 +69,22 @@
               r=r.toFixed(5);
             }
             console.log(n1+' ÷ '+n2+' = '+r);
+            document.getElementById('result').textContent=('Result = '+r);
           }
         }
         function fac(){
           let n1=Number(document.getElementById('InputText1').value);
           if (n1<0){
             console.log('Result is unattainable!');
+            document.getElementById('result').textContent=('Result is unattainable!');
           }
           else if (n1>100 || Number.isInteger(n1)==false){
             console.log('Too much recursion! >.<')
+            document.getElementById('result').textContent=('Result is unattainable!');
           }
           else {
             console.log(n1+'!'+'='+facti(n1));
+            document.getElementById('result').textContent=('Result = '+r);
           }
         }
         function facti(n) {
